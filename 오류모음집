@@ -1,0 +1,36 @@
+
+
+ㅡValueError: Input 0 of layer sequential is incompatible with the layer: expected axis -1 of input shape to have value 3 but received input with shape [None, 1]ㅡ
+
+첫번째 : input_dim, input_shape 차이
+
+두번째 : x의 shape가 input_dim 이랑 같은지
+
+세번째 : x_pred도 x의 shape와 같아야 한다. (x.shape=(13,3) 일경우 x_pred가 (3,) 일때 -> x_pred = x_pred.shape(1,3)으로 바꾼다.
+
+ㅡ결과 값이 3개로 나올때ㅡ
+
+input_dim을 2차원 이상 썼을 경우.
+
+x_pred.shape(3,1) -> x_pred.reshape(3,1,1) (x) => x_pred.reshape(1,3,1) (o) <-기억하깅
+
+
+ㅡValueError: Found array with dim 3. MinMaxScaler expected <= 2ㅡ
+
+MinMaxScaler는 3차원일때 불가능(아직 모름)
+
+ㅡloss, accuracy = model.evaluate(x_test, y_test)      
+ValueError: too many values to unpack (expected 2)ㅡ
+
+accuracy 빼면 됨 or metrics[acc, mae] 있으면 둘중하나 뺌
+
+ㅡloss 0나올때ㅡ
+loss = model.evaluate(x_test, y_test) 제대로썼는지 확인 
+
+ㅡNameError: name 'y_train' is not definedㅡ
+변수 저장할때 오타 
+
+ㅡValueError: Non-string object detected for the array ordering. Please pass in 'C', 'F', 'A', or 'K' insteadㅡ
+
+x = np.reshape(3,1,1) (x)  => x = x.reshape(3,1,1)(o)
+
